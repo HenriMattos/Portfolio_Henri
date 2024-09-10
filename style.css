@@ -39,7 +39,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%; /* Faz o GIF cobrir toda a área do header */
-    background: url('/files/backSite4.gif') no-repeat center center;
+    background: url('/files/back.gif') no-repeat center center;
+    background: url('/files/backSite4.png') no-repeat center center;
     background-size: cover; /* Faz o GIF cobrir todo o espaço mantendo a proporção */
     opacity: 2; /* Controle da opacidade do GIF */
     z-index: -1; /* Garante que o GIF fique atrás do conteúdo */
