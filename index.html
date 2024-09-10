@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Henri Mattos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="fonts/la.png" type="image/x-icon">
+</head>
+<body>
+
+    <header class="full-screen-header">
+        <div class="header-content">
+            </div>
+        </div>
+    </header>
+    
+
+    <section id="sobre-mim">
+        <h2>About me</h2>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/henri-mattos" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/HenriMattos" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+        <p>I am an Information Systems student with a solid foundation in cybersecurity and programming. I have developed practical experience in simulated environments, focusing on network security, penetration testing, and cyber defense. Currently, I am preparing for the CompTIA Security+ certification, aiming to solidify my career as a cybersecurity analyst. My goal is to protect systems and data by applying my technical skills and knowledge in information security. I am open to opportunities that allow me to grow and contribute in a professional environment.</p>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill" id="programming-card">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Programming</h3>
+            </div>
+            <div class="skill" id="cybersecurity-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Cybersecurity</h3>
+            </div>
+            <div class="skill" id="networking-card">
+                <i class="fas fa-network-wired"></i>
+                <h3>Networking</h3>
+            </div>
+            <div class="skill" id="os-card">
+                <i class="fas fa-server"></i>
+                <h3>Operating Systems</h3>
+            </div>
+        </div>
+    </section>
+    
+    <div id="programming-modal" class="modal">
+        <div class="modal-content">
+            <i class="fas fa-laptop-code"></i>
+            <h3>Programming</h3>
+            <ul>
+                <li>Python</li>
+                <li>JavaScript</li>
+                <li>HTML & CSS</li>
+                <li>C/C++</li>
+                <li>SQL</li>
+                <li>Git & Github</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="cybersecurity-modal" class="modal">
+        <div class="modal-content">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Cybersecurity</h3>
+            <ul>
+                <li>Data Protection Principles</li>
+                <li>Threat Mitigation</li>
+                <li>Incident Response</li>
+                <li>Penetration Testing</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="networking-modal" class="modal">
+        <div class="modal-content">
+            <i class="fas fa-network-wired"></i>
+            <h3>Networking</h3>
+            <ul>
+                <li>Network Security</li>
+                <li>Firewalls and VPNs</li>
+                <li>Wireless Networks</li>
+                <li>Network Monitoring</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="os-modal" class="modal">
+        <div class="modal-content">
+            <i class="fas fa-server"></i>
+            <h3>Operating Systems</h3>
+            <ul>
+                <li>Linux Administration</li>
+                <li>Windows Management</li>
+                <li>File Systems</li>
+                <li>Volume Management</li>
+            </ul>
+        </div>
+    </div>
+    
+    <section id="projetos">
+        <h2>Projects</h2>
+        <div class="projetos-grid">
+            
+            <div class="projeto-card">
+                <i class="fas fa-code"></i> 
+                <h3>CryptCronos</h3>
+                <a href="projeto1.html" class="ver-mais">Explore</a>
+            </div>
+    
+            <div class="projeto-card">
+                <i class="fas fa-code"></i> 
+                <h3>PortScan</h3>
+                <a href="projeto2.html" class="ver-mais">Explore</a>
+            </div>
+    
+            <div class="projeto-card">
+                <i class="fas fa-code"></i> 
+                <h3>Void</h3>
+                <a href="projeto3.html" class="ver-mais">Explore</a>
+            </div>
+    
+            <div class="projeto-card">
+                <i class="fas fa-code"></i> 
+                <h3>Void</h3>
+                <a href="projeto4.html" class="ver-mais">Explore</a>
+            </div>
+    
+        </div>
+    </section>
+
+    <section id="contato">
+        <h2>Contact Me</h2>
+        <form action="mailto:henrikdepaivamattos@proton.me" method="post" enctype="text/plain">
+            <label for="name"><i class="fas fa-user"></i> Name</label>
+            <input type="text" id="name" name="name" required>
+    
+            <label for="email"><i class="fas fa-envelope"></i> Email</label>
+            <input type="email" id="email" name="email" required>
+    
+            <label for="message"><i class="fas fa-comment-dots"></i> Message</label>
+            <textarea id="message" name="message" required></textarea>
+            
+                <button type="submit"><i class="fas fa-paper-plane"></i> Send</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Henri Mattos - All rights reserved</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

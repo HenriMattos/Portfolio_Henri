@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptCronos Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="fonts/la.png" type="image/x-icon">
+    <style>
+        /* Carrossel */
+        .carousel-container {
+            max-width: 800px; /* Largura do carrossel */
+            position: relative;
+            margin: auto;
+            overflow: hidden; /* Oculta as partes das imagens que estão fora da área visível */
+            border-radius: 8px; /* Borda arredondada */
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease; /* Transição suave */
+        }
+
+        .carousel-slide {
+            min-width: 100%; /* Cada slide ocupa 100% da largura do container */
+            box-sizing: border-box;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        /* Indicadores */
+        .dot-container {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #63636342;
+            border-radius: 50%; /* Ajuste o formato aqui */
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active {
+            background-color: #ffcd3893; /* Cor amarela para a dot ativa */
+        }
+
+        .dot:hover {
+            background-color: #6b6b6b;
+        }
+
+        /* Botão de áudio */
+        .center-button {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px; /* Ajuste conforme necessário */
+        }
+
+        .button {
+            background-color: #ffcd38; 
+            color: #0b0c28; 
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #ffffff;
+        }
+
+        /* Ícone do botão */
+        #audioIcon {
+            margin-right: 5px; /* Espaço entre o ícone e o slider */
+            font-size: 1.5em; /* Tamanho do ícone */
+        }
+
+        /* Estilo para o botão de áudio */
+        .center-button .button#audioButton {
+            background-color: transparent;
+            border: none;
+            padding: 0;
+            color: #ffcd38; 
+            cursor: pointer; 
+        }
+
+        .center-button .button#audioButton i {
+            font-size: 1.1em;
+        }
+
+        /* Estilo para o botão de áudio ao passar o mouse */
+        .center-button .button#audioButton:hover {
+            color: #ffffff; /* Cor do ícone ao passar o mouse */
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="center-button">
+        <button id="audioButton" class="button">
+            <i id="audioIcon" class="fas fa-volume-up"></i>
+        </button>
+        <a href="index.html" class="button"><i class="fas fa-home"></i> Home</a>
+        <a href="projeto2.html" class="button">Next Project</a>
+    </div>
+    
+    <!-- Áudio oculto que começa automaticamente -->
+    <audio id="backgroundMusic" loop>
+        <source src="files/hacker day.mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+
+    <!-- Detalhes do projeto -->
+    <section id="projeto-detalhes">
+        
+        <!-- Carrossel de imagens -->
+        <div class="carousel-container">
+            <div class="carousel-slides">
+                <div class="carousel-slide">
+                    <img src="files/project.gif" alt="Imagem 1 do código">
+                </div>
+                <div class="carousel-slide">
+                    <img src="files/cryptcronos.gif" alt="Imagem 2 do código">
+                </div>
+            </div>
+        </div>
+
+        <!-- Indicadores (pontos) -->
+        <div class="dot-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
+
+        <!-- Documentação do projeto -->
+        <div class="documentacao">
+            <h2>Documentação do Projeto</h2>
+            
+            <div class="center-button">
+                <a href="https://github.com/HenriMattos/Python_Tools/blob/main/CryptCronos.py" class="button" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+            </div>
+            
+            <h4>Sobre:</h4>
+            <p>O CryptCronos é uma ferramenta de criptografia que suporta dois algoritmos: AES e RSA. O script permite criptografar e descriptografar arquivos com segurança usando essas técnicas de criptografia.</p>
+
+            <!-- Funcionalidades do projeto -->
+            <h4>Funcionalidades:</h4>
+            <ul>
+                <li>Criptografia e descriptografia de arquivos usando AES (Advanced Encryption Standard)</li>
+                <li>Criptografia e descriptografia de arquivos usando RSA (Rivest-Shamir-Adleman)</li>
+                <li>Geração e uso de chaves AES e RSA</li>
+                <li>Interface de linha de comando com opções interativas e coloridas</li>
+            </ul>
+
+            <!-- Requisitos do projeto -->
+            <h4>Requisitos:</h4>
+            <ul>
+                <li>Python 3.x</li>
+                <li>Biblioteca <code>pycryptodome</code> para criptografia</li>
+                <li>Biblioteca <code>colorama</code> para estilização do terminal</li>
+            </ul>
+
+            <!-- Explicação do código -->
+            <h4>Explicação do Código:</h4>
+            <ul>
+                <li><strong>Função <code>gerar_chave_aes(bits)</code>:</strong> Gera uma chave AES com o comprimento especificado em bits.</li>
+                <li><strong>Função <code>criptografar_arquivo_aes(arquivo_entrada, arquivo_saida, chave)</code>:</strong> Criptografa um arquivo usando a chave AES fornecida.</li>
+                <li><strong>Função <code>descriptografar_arquivo_aes(arquivo_entrada, arquivo_saida, chave)</code>:</strong> Descriptografa um arquivo usando a chave AES fornecida.</li>
+                <li><strong>Função <code>gerar_pares_chaves_rsa()</code>:</strong> Gera pares de chaves RSA e salva as chaves privada e pública em arquivos.</li>
+                <li><strong>Função <code>criptografar_arquivo_rsa(arquivo_entrada, arquivo_saida, arquivo_chave_publica)</code>:</strong> Criptografa um arquivo usando a chave pública RSA fornecida.</li>
+                <li><strong>Função <code>descriptografar_arquivo_rsa(arquivo_entrada, arquivo_saida, arquivo_chave_privada)</code>:</strong> Descriptografa um arquivo usando a chave privada RSA fornecida.</li>
+                <li><strong>Função <code>imprimir_menu()</code>:</strong> Exibe o menu principal com opções para criptografia e descriptografia.</li>
+                <li><strong>Função <code>mostrar_info(opcao)</code>:</strong> Fornece informações detalhadas sobre cada opção do menu.</li>
+                <li><strong>Função <code>main()</code>:</strong> Função principal que executa o menu e gerencia a execução das opções selecionadas.</li>
+            </ul>
+
+            <!-- Melhorias futuras -->
+            <h4>Ainda preciso implementar:</h4>
+            <ul>
+                <li>Suporte para criptografia de arquivos grandes em múltiplos blocos</li>
+                <li>Melhor tratamento de erros para todas as operações de criptografia</li>
+                <li>Adição de um sistema de autenticação para maior segurança</li>
+            </ul>
+
+            <!-- Instruções de utilização -->
+            <h4>Utilização:</h4>
+            <ul>
+                <li>Salve o código em um arquivo Python (.py)</li>
+                <li>Execute o script com o comando <code>python cryptcronos.py</code></li>
+                <li>Escolha uma opção no menu para criptografar ou descriptografar arquivos</li>
+                <li>Para criptografia RSA, certifique-se de ter arquivos de chave pública e privada</li>
+            </ul>
+
+            <!-- Observações finais -->
+            <h4>Observações:</h4>
+            <ul>
+                <li>Este projeto é para fins educacionais e de demonstração.</li>
+                <li>Utilize as ferramentas com responsabilidade e segurança.</li>
+                <li>Certifique-se de proteger suas chaves de criptografia e não compartilhar informações sensíveis.</li>
+            </ul>
+        </div>
+
+        <div class="center-button">
+            <a href="index.html" class="button"><i class="fas fa-home"></i> Home</a>
+            <a href="projeto2.html" class="button">Next Project</a>
+        </div>
+
+    </section>
+
+    <script>
+
+        let slideIndex = 1;
+
+        function changeSlide(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.querySelectorAll(".carousel-slide");
+            let dots = document.getElementsByClassName("dot");
+
+            if (n > slides.length) {
+                slideIndex = 1;
+            }
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+
+            // Mover slides
+            document.querySelector(".carousel-slides").style.transform = `translateX(${-100 * (slideIndex - 1)}%)`;
+
+            // Atualizar indicadores (dots)
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", ""); // Remove a classe active de todas as dots
+            }
+            dots[slideIndex - 1].className += " active"; // Adiciona a classe active na dot correspondente ao slide atual
+        }
+
+            // Função para alterar o slide automaticamente a cada 7 segundos (7000 ms)
+                setInterval(function() { changeSlide(1); }, 7000);
+
+        // Exibir o primeiro slide ao carregar
+        showSlides(slideIndex);
+
+        const audio = document.getElementById("backgroundMusic");
+        const audioIcon = document.getElementById("audioIcon");
+
+        // Iniciar música somente quando desmutado pelo usuário
+        window.onload = function() {
+            audio.muted = true; // Muta o áudio inicialmente
+        };
+
+        // Alternar entre mute/desmute ao clicar no ícone de áudio
+        audioIcon.addEventListener("click", function() {
+            if (audio.muted) {
+                audio.muted = false;
+                audio.play(); // Inicia o áudio ao desmutar
+                audioIcon.classList.remove("fa-volume-mute");
+                audioIcon.classList.add("fa-volume-up");
+            } else {
+                audio.muted = true;
+                audio.pause(); // Pausa o áudio ao mutar
+                audioIcon.classList.remove("fa-volume-up");
+                audioIcon.classList.add("fa-volume-mute");
+            }
+        });
+
+    </script>
+
+</body>
+</html>

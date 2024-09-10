@@ -1,0 +1,598 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: 'Montserrat', sans-serif; /* Define a fonte padrão */
+    background-color: #121333;
+    color: #ffffff;
+    
+}
+
+/*header com GIF de fundo */
+.full-screen-header {
+    position: relative;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    height: 400px; /* Altura fixa do header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Para evitar que o GIF transborde */
+}
+
+/* tamanho do GIF de fundo */
+.full-screen-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Faz o GIF cobrir toda a área do header */
+    background: url('/files/backSite3.gif') no-repeat center center;
+    background-size: cover; /* Faz o GIF cobrir todo o espaço mantendo a proporção */
+    opacity: 2; /* Controle da opacidade do GIF */
+    z-index: -1; /* Garante que o GIF fique atrás do conteúdo */
+}
+
+/* sobre mim */
+#sobre-mim {
+    padding: 50px;
+    background-color: #0b0c28;
+    text-align: center;
+    color: #333;
+}
+
+.social-icons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.social-icons a {
+    color: #ffcd38;
+    margin: 0 10px;
+    margin-bottom: 30px;
+    font-size: 1.6em;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #ffffff;
+    transform: rotate(15deg);
+}
+
+#sobre-mim h2 {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#sobre-mim p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+#sobre-mim h2 {
+    font-size: 1.6em;
+    text-align: center;
+    margin-bottom: 5px;
+    color: #ffcd38;
+    position: relative;
+}
+
+#sobre-mim h2::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #ffcd38;
+    margin: 10px auto 0;
+    transition: width 0.2s ease-in-out;
+}
+
+#sobre-mim h2:hover::after {
+    width: 170px;
+}
+
+/* Skills */
+#skills {
+    background-color: #121333;
+    padding: 50px;
+    cursor: pointer;
+}
+
+#skills h2 {
+    font-size: 1.6em;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #ffcd38;
+    position: relative;
+}
+
+#skills h2::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #ffcd38;
+    margin: 10px auto 0;
+    transition: width 0.2s ease-in-out; /* Transição suave */
+}
+
+#skills h2:hover::after {
+    width: 100px;
+}
+
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Animação para skills */
+.skill {
+    background: #0b0c28;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    text-align: center;
+    width: 200px;
+    transition: transform 0.3s ease; 
+}
+
+.skill:hover {
+    transform: scale(1.1);
+}
+
+.skill i {
+    font-size: 2em;
+    color: #ffcd38;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.skill i:hover {
+    color: #ffffff; 
+    transform: rotate(15deg) scale(1.1); /* Inclina e aumenta o ícone ao passar o mouse */
+}
+
+.skill h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #ffcd38;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(110, 110, 110, 0.365);
+}
+
+.modal-content {
+    background-color: #0b0c28;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+}
+
+.modal-content i {
+    font-size: 3em;
+    color: #ffcd38;
+    margin-bottom: 10px;
+}
+
+.modal-content h3 {
+    font-size: 1.6em;
+    margin-bottom: 20px;
+    color: #ffcd38;
+}
+
+.modal-content ul {
+    list-style-type: none;
+    padding: 0;
+    color: #ffffff;
+}
+
+.modal-content ul li {
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+.modal:hover {
+    transform: scale(1.1);
+}
+
+.modal i {
+    font-size: 2em;
+    color: #ffcd38;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.modal i:hover {
+    color: #ffffff;
+    transform: rotate(15deg) scale(1.1); 
+}
+
+.modal.show {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* projetos */
+#projetos {
+    padding: 50px;
+    background-color: #0b0c28;
+    text-align: center;
+    color: #333;
+}
+
+#projetos h2 {
+    text-align: center;
+}
+
+#projetos h2 {
+    font-size: 1.6em;
+    text-align: center;
+    color: #ffcd38;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+#projetos h2::after {
+    content: "";
+    display: block;
+    width: 0; 
+    height: 2px;
+    background-color: #ffcd38;
+    margin: 10px auto 0;
+    transition: width 0.2s ease-in-out;
+}
+
+#projetos h2:hover::after {
+    width: 150px;
+}
+
+.projetos-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.projeto-card {
+    max-width: 350px; /* Define um limite máximo de largura */
+    min-width: 350px; /* Define uma largura mínima para os cards */
+    border-radius: 10px;
+    padding: 30px;
+    margin: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #121333;
+    transition: transform 0.3s ease;
+}
+
+.projeto-card:hover {
+    transform: scale(1.05);
+}
+
+.projeto-card h3 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #ffcd38;
+}
+
+.projeto-card a {
+    text-decoration: none;
+    color: #0b0c28;
+    font-weight: bold;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.projeto-card:hover {
+    transform: scale(1.1);
+}
+
+.projeto-card i {
+    font-size: 2em;
+    color: #ffcd38;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.projeto-card i:hover {
+    color: #ffffff; 
+    transform: rotate(15deg) scale(1.1);
+}
+
+.ver-mais {
+    background-color: #ffcd38;
+    color: #0b0c28;
+    padding: 10px 20px;
+    text-decoration: none; 
+    border-radius: 5px; 
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.ver-mais:hover {
+    background-color: #ffffff;
+}
+
+/* contato */
+#contato {
+    padding: 50px;
+    background-color: #121333;
+    color: #ffcd38;
+    text-align: left;
+}
+
+#contato h2 {
+    font-size: 1.6em;
+    color: #ffcd38;
+    margin-bottom: 30px;
+}
+
+#contato form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#contato label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#contato input, 
+#contato textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    resize: vertical;
+}
+
+#contato button {
+    background-color: #ffcd38;
+    color: #0b0c28;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 5px;
+    font-weight: bold;
+    font-family: Montserrat;
+    transition: background-color 0.3s ease; /* Efeito de transição */
+}
+
+#contato button:hover {
+    background-color: #ffffff;
+    
+}
+
+#contato h2 {
+    font-size: 1.6em;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #ffcd38;
+    position: relative;
+}
+
+#contato h2::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #ffcd38;
+    margin: 10px auto 0;
+    transition: width 0.2s ease-in-out;
+}
+
+#contato h2:hover::after {
+    width: 180px; 
+}
+
+/* botões */
+.center-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 45px;
+}
+
+.button {
+    background-color: #ffcd38; 
+    color: #0b0c28; 
+    padding: 10px 20px; /* Espaçamento interno do botão */
+    text-decoration: none; /* Remove o sublinhado */
+    border-radius: 5px; 
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease; 
+    margin: 0 10px; /* Espaçamento lateral entre os botões */
+}
+
+.button:hover {
+    background-color: #ffffff; 
+}
+
+/* página do projeto */
+#projeto-detalhes {
+    padding: 50px;
+    text-align: center;
+}
+
+.gif-container img {
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+/* documentação do projeto */
+.documentacao {
+    margin-top: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.documentacao h2 {
+    position: relative;
+    font-size: 1.6em;
+    color: #ffcd38;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.documentacao h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    width: 0; 
+    height: 2px;
+    background-color: #ffcd38;
+    transition: width 0.4s ease;
+    transform: translateX(-50%);
+}
+
+.documentacao h2:hover::after {
+    width: 60%;
+}
+
+.documentacao h4 {
+    font-size: 1.2em;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: #ffcd38;
+}
+
+.documentacao p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.documentacao ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.documentacao ul li {
+    margin-bottom: 10px;
+}
+footer {
+    background-color: #0b0c28;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Responsividade*/
+@media (max-width: 600px) {
+
+    #sobre-mim p {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    .skills-container{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skill{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+}
+
+/* Responsividade para telas grandes*/
+@media (min-width: 1200px) {
+
+    .skills-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 20px;
+    }
+
+    .skill {
+        width: 20%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 600px) {
+    .projetos-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .projeto-card {
+        width: 100%;
+        max-width: none;
+        margin-bottom: 40px;
+    }
+}
+
+/* Responsividade para telas grandes */
+@media (min-width: 1200px) {
+    .projetos-grid {
+        gap: 20px; /* Ajuste do espaçamento entre os cards */
+    }
+
+    .projeto-card {
+        flex: 1 1 calc(20% - 20px); /* Ajusta o espaçamento entre os cards em telas grandes */
+    }
+}
+
+/* Responsividade para tamanhos intermediários*/
+@media (min-width: 600px) and (max-width: 1199px) {
+    .projetos-grid {
+        justify-content: center; /* Centraliza os cards na linha */
+    }
+
+    .projeto-card {
+        flex: 1 1 calc(33.33% - 20px); /* Ajusta o tamanho dos cards para 3 por linha */
+    }
+}
