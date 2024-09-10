@@ -13,12 +13,12 @@ html {
 
 body {
     font-family: 'Montserrat', sans-serif; /* Define a fonte padrão */
-    background-color: #121333;
+    background-color: #04041b;
     color: #ffffff;
     
 }
 
-/*header com GIF de fundo */
+/* Estilo para o header com GIF de fundo */
 .full-screen-header {
     position: relative;
     color: #fff;
@@ -31,19 +31,42 @@ body {
     overflow: hidden; /* Para evitar que o GIF transborde */
 }
 
-/* tamanho do GIF de fundo */
-.full-screen-header::before {
-    content: "";
+/* Estilo para o header com GIF de fundo */
+.full-screen-header {
+    position: relative;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    height: 400px; /* Altura fixa do header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Para evitar que o GIF transborde */
+}
+
+/* Controle do GIF de fundo */
+.background-gif {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%; /* Faz o GIF cobrir toda a área do header */
-    background: url('/files/backSite4.png') no-repeat center center;
-    background-size: cover; /* Faz o GIF cobrir todo o espaço mantendo a proporção */
-    opacity: 2; /* Controle da opacidade do GIF */
-    z-index: -1; /* Garante que o GIF fique atrás do conteúdo */
+    height: 100%;
+    object-fit: cover; /* Faz o GIF cobrir toda a área mantendo a proporção */
 }
+
+/* Estilo para o h1 */
+.header-content h1 {
+    font-size: 6.3em; /* Tamanho grande para o título */
+    margin: 0;
+}
+
+/* Estilo para o h2 */
+.header-content h2 {
+    font-size: 2em; /* Tamanho menor para o subtítulo */
+    color: #ffcd38; /* Cor do subtítulo */
+    margin: -15px 0 0; /* Margem acima do subtítulo */
+}
+
 
 /* sobre mim */
 #sobre-mim {
