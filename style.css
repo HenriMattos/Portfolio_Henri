@@ -41,6 +41,12 @@ body {
     object-fit: cover; 
 }
 
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
 
 .header-content h1 {
     font-size: 6.3em;
@@ -266,7 +272,7 @@ body {
     background-color: #0b0c28;
     text-align: center;
     color: #333;
-}
+  }
 
 #projetos h2 {
     text-align: center;
@@ -296,21 +302,23 @@ body {
 
 .projetos-grid {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
-}
-
-.projeto-card {
-    max-width: 350px; 
-    min-width: 350px;
+    justify-content: space-around;
+    gap: 20px; /* Adjust gap as needed */
+  }
+  
+  .projeto-card {
+    /* Use percentages or viewport units for width */
+    width: calc(50% - 20px); /* Example for two cards per row */
+    /* Or: width: 100%;  For single card per row */
     border-radius: 10px;
     padding: 30px;
-    margin: 10px;
+    margin: 10px 0;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #121333;
     transition: transform 0.3s ease;
-}
+  }
 
 .projeto-card:hover {
     transform: scale(1.05);
@@ -522,6 +530,23 @@ footer {
     padding: 20px 0;
 }
 
+@media (max-width: 768px) { /* Adjust breakpoint as needed */
+    .projeto-card {
+      width: 100%; /* Single card per row on smaller screens */
+      margin: 10px auto; /* Center cards horizontally */
+    }
+  }
+
+@media (max-width: 768px) {
+    h1 {
+      font-size: 2em;
+    }
+  
+    h2 {
+      font-size: 1.2em;
+    }
+  }
+
 /* Responsividade para telas menores */
 @media (max-width: 569px) and (max-height: 697px) {
 
@@ -577,6 +602,28 @@ footer {
         gap: 10px;
     }
 }
+
+/* Responsividade dos Cards de Projetos */
+@media (max-width: 409px) {
+    .project-card {
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    .project-card img {
+        width: 100%;
+        height: auto;
+    }
+
+    .project-card .details {
+        font-size: 0.9em;
+    }
+
+    .project-card .title {
+        font-size: 1em;
+    }
+}
+
 
 /* Responsividade para tamanhos intermediários */
 @media (min-width: 600px) and (max-width: 1199px) {
