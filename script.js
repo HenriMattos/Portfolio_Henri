@@ -1,6 +1,4 @@
 // Seleciona os cards de habilidades e os modais
-
-const skillCards = document.querySelectorAll('.skill');
 const modals = {
     programming: document.getElementById('programming-modal'),
     cybersecurity: document.getElementById('cybersecurity-modal'),
@@ -25,16 +23,18 @@ document.getElementById('os-card').addEventListener('click', () => {
     modals.os.classList.add('show');
 });
 
-// Fecha o modal ao clicar fora dele
+// Fecha o modal
 window.addEventListener('click', (event) => {
     if (event.target.classList.contains('modal')) {
         event.target.classList.remove('show');
     }
 });
 
-// Fecha o modal ao clicar fora dele
-window.addEventListener('click', (event) => {
-    if (event.target.classList.contains('modal')) {
-        event.target.classList.remove('show');
+// Fecha o modal com ESC
+window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        Object.values(modals).forEach(modal => {
+            modal.classList.remove('show');
+        });
     }
 });
