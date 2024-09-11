@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecGRC Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="fonts/la.png" type="image/x-icon">
+    <style>
+        /* Carrossel */
+        .carousel-container {
+            max-width: 800px;
+            position: relative;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        /* Indicadores */
+        .dot-container {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #63636342;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active {
+            background-color: #ffcd3893;
+        }
+
+        .dot:hover {
+            background-color: #6b6b6b;
+        }
+
+        /* Botões centrais */
+        .center-button {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .button {
+            background-color: #ffcd38;
+            color: #0b0c28;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #ffffff;
+        }
+
+        /* Estilo para o botão de áudio */
+        .center-button .button#audioButton {
+            background-color: transparent;
+            border: none;
+            color: #ffcd38;
+            cursor: pointer;
+            font-size: 1.5em;
+        }
+
+        .center-button .button#audioButton:hover {
+            color: #ffffff;
+        }
+
+        .documentacao ul {
+            list-style: disc;
+            margin-left: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="center-button">
+        <button id="audioButton" class="button">
+            <i id="audioIcon" class="fas fa-volume-mute"></i>
+        </button>
+    </div>
+
+    <div class="center-button">
+        <a href="index.html" class="button"><i class="fas fa-home"></i> Página Inicial</a>
+        <a href="projeto1.html" class="button">Próximo Projeto</a>
+    </div>
+
+    <audio id="backgroundMusic" loop>
+        <source src="files/hacker day.mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+
+    <section id="projeto-detalhes">
+        <div class="carousel-container">
+            <div class="carousel-slides">
+                <div class="carousel-slide">
+                    <img src="files/project.gif" alt="Imagem 1 do código">
+                </div>
+                <div class="carousel-slide">
+                    <img src="files/secgrc.gif" alt="Imagem 2 do código">
+                </div>
+            </div>
+        </div>
+
+        <div class="dot-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
+
+        <div class="documentacao">
+            <h2>Documentação do Projeto</h2>
+            <div class="center-button">
+                <a href="https://github.com/HenriMattos/Python_Tools/blob/main/secGRC.py" class="button" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i> Ver no GitHub
+                </a>
+            </div>
+            
+            <h4>Sobre:</h4>
+            <p>O CryptCronos é uma ferramenta de criptografia que suporta dois algoritmos: AES e RSA. O script permite criptografar e descriptografar arquivos com segurança.</p>
+
+            <h4>Funcionalidades:</h4>
+            <ul>
+                <li>Criptografia e descriptografia usando AES e RSA</li>
+                <li>Geração e uso de chaves AES e RSA</li>
+                <li>Interface interativa</li>
+            </ul>
+
+            <h4>Requisitos:</h4>
+            <ul>
+                <li>Python 3.x</li>
+                <li>Bibliotecas: <code>pycryptodome</code>, <code>colorama</code></li>
+            </ul>
+
+            <h4>Melhorias futuras:</h4>
+            <ul>
+                <li>Suporte para arquivos grandes</li>
+                <li>Tratamento de erros aprimorado</li>
+            </ul>
+        </div>
+
+        <div class="center-button">
+            <a href="index.html" class="button"><i class="fas fa-home"></i> Página Inicial</a>
+            <a href="projeto1.html" class="button">Próximo Projeto</a>
+        </div>
+    </section>
+
+    <script>
+        let slideIndex = 1;
+
+        function changeSlide(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let slides = document.querySelectorAll(".carousel-slide");
+            let dots = document.getElementsByClassName("dot");
+
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
+
+            document.querySelector(".carousel-slides").style.transform = `translateX(${-100 * (slideIndex - 1)}%)`;
+
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            dots[slideIndex - 1].className += " active";
+        }
+
+        setInterval(function() { changeSlide(1); }, 7000);
+
+        showSlides(slideIndex);
+
+        const audio = document.getElementById("backgroundMusic");
+        const audioButton = document.getElementById("audioButton");
+        const audioIcon = document.getElementById("audioIcon");
+
+        window.onload = function() {
+            audio.muted = true;
+        };
+
+        audioButton.addEventListener("click", function() {
+            if (audio.muted) {
+                audio.muted = false;
+                audio.play();
+                audioIcon.classList.replace("fa-volume-mute", "fa-volume-up");
+            } else {
+                audio.muted = true;
+                audio.pause();
+                audioIcon.classList.replace("fa-volume-up", "fa-volume-mute");
+            }
+        });
+    </script>
+
+</body>
+</html>
