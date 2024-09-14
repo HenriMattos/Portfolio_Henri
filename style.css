@@ -116,7 +116,7 @@ h2 {
 }
 
 #sobre-mim h2:hover::after {
-    width: 500px;
+    width: 190px;
 }
 
 #skills {
@@ -144,7 +144,7 @@ h2 {
 }
 
 #skills h2:hover::after {
-    width: 500px;
+    width: 190px;
 }
 
 .skills-container {
@@ -289,7 +289,7 @@ h2 {
 }
 
 #projetos h2:hover::after {
-    width: 500px;
+    width: 150px;
 }
 
 .projetos-grid {
@@ -511,6 +511,9 @@ h2 {
 .carousel-slide {
     min-width: 100%;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .carousel-slide img {
@@ -518,6 +521,8 @@ h2 {
     height: auto;
     display: block;
     border-radius: 8px;
+    max-width: 600px; 
+    min-width: 300px; 
 }
 
 .dot-container {
@@ -618,8 +623,8 @@ footer {
     }
 
     .carousel-slide img {
-        height: auto;
-        max-width: 100%;
+        width: 100%;
+        min-width: unset;
     }
 
     .documentacao {
@@ -696,6 +701,11 @@ footer {
 
     .documentacao {
         padding: 0 var(--padding-medium);
+    }
+
+    .carousel-slide img {
+        width: 100%;
+        min-width: unset;
     }
 }
 
