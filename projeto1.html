@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptCronos Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="fonts/la.png" type="image/x-icon">
+</head>
+<body>
+
+    <div class="center-button">
+        <a href="projeto0.html" class="button">Anterior</a>
+        <a href="index.html" class="button"><i class="fas fa-home"></i> Página Inicial</a>
+        <a href="projeto2.html" class="button">Próximo Projeto</a>
+    </div>
+
+    <section id="projeto-detalhes">
+        
+        <div class="carousel-container" style="position: relative;">
+    
+            <a href="https://github.com/HenriMattos/Python_Tools/blob/main/CryptCronos.py" class="button github-button" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i> Ver no GitHub
+            </a>
+    
+                <div class="carousel-slides">
+                    <div class="carousel-slide">
+                        <img src="files/cryptcronos.gif" alt="Imagem 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="files/project.gif" alt="Imagem 2">
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="dot-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
+
+        <div class="documentacao">
+            <h2>CryptCronos - Criptografia</h2>
+        
+            <h4 onclick="toggleContent('sobre', this)"><i class="fas fa-chevron-right"></i> Sobre o Projeto</h4>
+            <div id="sobre" class="conteudo">
+                <p>O CryptCronos é uma ferramenta de criptografia que suporta dois algoritmos: AES e RSA.</p>
+                <p>O script permite criptografar e descriptografar arquivos com segurança usando essas técnicas de criptografia.</p>
+            </div>
+        
+            <h4 onclick="toggleContent('funcionalidades', this)"><i class="fas fa-chevron-right"></i> Funcionalidades</h4>
+            <div id="funcionalidades" class="conteudo">
+                <ul>
+                    <li>Criptografia e descriptografia de arquivos usando AES (Advanced Encryption Standard)</li>
+                    <li>Criptografia e descriptografia de arquivos usando RSA (Rivest-Shamir-Adleman)</li>
+                    <li>Geração e uso de chaves AES e RSA</li>
+                    <li>Interface de linha de comando com opções interativas e coloridas</li>
+                </ul>
+            </div>
+        
+            <h4 onclick="toggleContent('requisitos', this)"><i class="fas fa-chevron-right"></i> Requisitos</h4>
+            <div id="requisitos" class="conteudo">
+                <ul>
+                    <li>Python 3.x</li>
+                    <li>Biblioteca <code>pycryptodome</code> para criptografia</li>
+                    <li>Biblioteca <code>colorama</code> para estilização do terminal</li>
+                </ul>
+            </div>
+        
+            <h4 onclick="toggleContent('utilizacao', this)"><i class="fas fa-chevron-right"></i> Utilização</h4>
+            <div id="utilizacao" class="conteudo">
+                <ul>
+                    <li>Salve o código em um arquivo Python (.py)</li>
+                    <li>Execute o script com o comando <code>python cryptcronos.py</code></li>
+                    <li>Escolha uma opção no menu para criptografar ou descriptografar arquivos</li>
+                    <li>Para criptografia RSA, certifique-se de ter arquivos de chave pública e privada</li>
+                </ul>
+            </div>
+
+            <h4 onclick="toggleContent('melhorias', this)"><i class="fas fa-chevron-right"></i>Ainda preciso implementar</h4>
+            <div id="melhorias" class="conteudo">
+                <ul>
+                    <li>Suporte para criptografia de arquivos grandes em múltiplos blocos</li>
+                    <li>Melhor tratamento de erros para todas as operações de criptografia</li>
+                    <li>Adição de um sistema de autenticação para maior segurança</li>
+                </ul>
+            </div>
+        
+            <h4 onclick="toggleContent('observacoes', this)"><i class="fas fa-chevron-right"></i> Observações</h4>
+            <div id="observacoes" class="conteudo">
+                <ul>
+                    <li>Este projeto é para fins educacionais e de demonstração.</li>
+                    <li>Utilize as ferramentas com responsabilidade e segurança.</li>
+                    <li>Certifique-se de proteger suas chaves de criptografia e não compartilhar informações sensíveis.</li>
+                </ul>
+            </div>
+        
+    <script src="dot.js"></script>
+
+    <script>
+        function toggleContent(id, element) {
+            var content = document.getElementById(id);
+            var icon = element.querySelector('i');
+
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block"; 
+                icon.classList.remove('fa-chevron-right');
+                icon.classList.add('fa-chevron-down');
+            } else {
+                content.style.display = "none"; 
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-right'); 
+            }
+        }
+    </script>
+
+</body>
+</html>
